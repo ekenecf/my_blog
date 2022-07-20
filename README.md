@@ -8,13 +8,11 @@ A fully functional website that will show the list of posts and empower readers 
 
 ### Cloning the project
 
- git clone https://github.com/ekenecf/my_blog.git <Your-Build-Directory>
+ git clone https://github.com/ekenecf/my_blog.git
 ``` 
 - cd Blog-app
 rails s
 ```
-
-
 ## Built with
 - Ruby on Rails
 - PostgreSQL
@@ -36,6 +34,7 @@ Setup
 
 - GitHub: [@ekene](https://github.com/ekenecf)
 - LinkedIn: [Nwachukwu Ekene](https://www.linkedin.com/in/nwachukwuekene/)
+- Twitter: [ekene070](https://www.twitter.com/ekene070)
 
 ## 🤝 Contributing
 
