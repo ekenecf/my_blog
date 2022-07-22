@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_20_192833) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_21_171256) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_192833) do
     t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "authorId"
-    t.string "postId"
+    t.bigint "authorId"
+    t.bigint "postId"
     t.index ["authorId"], name: "index_comments_on_authorId"
     t.index ["postId"], name: "index_comments_on_postId"
   end
@@ -27,8 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_192833) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "authorId"
-    t.string "postId"
+    t.bigint "authorId"
+    t.bigint "postId"
     t.index ["authorId"], name: "index_likes_on_authorId"
     t.index ["postId"], name: "index_likes_on_postId"
   end
@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_192833) do
     t.integer "likescounter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "authorId"
+    t.bigint "authorId"
     t.index ["authorId"], name: "index_posts_on_authorId"
   end
 
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_192833) do
     t.string "name"
     t.string "photo"
     t.string "bio"
-    t.integer "postcounter"
+    t.bigint "postcounter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
