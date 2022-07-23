@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   subject do
-    user1 = User.new(name: 'Ekene',
+    user1 = User.create!(name: 'Ekene',
                      photo: 'https://as2.ftcdn.net/v2/jpg/02/17/51/67/1000_F
                      _217516770_nHjCK3C82B2ZUC3JB3qQs8W2BGLHxZfa.jpg', bio: 'Microverse_student', postcounter: 0)
     Post.create!(title: 'RSpec is a testing tool for Ruby, created for behavior-driven development (BDD).',
