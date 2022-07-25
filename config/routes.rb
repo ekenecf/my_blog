@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/index'
   root to: 'users#index'
 
   resources :users, only: %i[index new show] do
