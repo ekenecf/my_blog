@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  describe 'GET /index' do
+  describe 'GET #index' do
     before(:example) { get('/users/14/posts') }
 
     it 'returns http success' do
@@ -17,7 +17,7 @@ RSpec.describe 'Posts', type: :request do
     end
   end
 
-  describe 'GET /show' do
+  describe 'GET #show' do
     before(:example) { get('/users/120/posts/76') }
     it 'http response should be sucess' do
       expect(response).to have_http_status(:ok)
