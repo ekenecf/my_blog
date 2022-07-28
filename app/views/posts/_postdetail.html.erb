@@ -16,17 +16,5 @@
   <% if post.comments.empty? %>
     <p>There are no comment!</p>
   <% end %>
-  <% @post.comments.each do |comment| %>
-    <div class="comment-card">
-      <strong>
-      <%= comment.user.name %>
-        <%= link_to user_path(comment.authorId) do %>
-            
-        <% end %>
-        :
-      </strong>
-      <%= comment.text %>
-    </div>
-  <% end %>
 </div>
 </div>
