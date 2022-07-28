@@ -1,18 +1,18 @@
-<div> recent posts</div>
-
  <h2>
     <span>
 
-     Title: <%= post.title %>
-     id: <%= post.id %>
+     Title: <%= link_to post.title, [post.user, post] %>
+
     </span>
   </h2>
    <p>
    Text content: <%= post.text %>
+   Text id: <%= post.id %>
   </p>
 
-  <small>
-    <span>Comment: <%= post.commentscounter %> </span>
-    <div> <%= link_to "See post", user_post_path(@post) %> </div>
-
-  </small>
+  <p>
+  Comment: <%= post.commentscounter %> 
+  </p>
+  <div>
+  
+  </div>
