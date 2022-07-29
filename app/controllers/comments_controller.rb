@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+
+  before_action :set_comment, only: %i[index show update destroy]
+
   def index
-    @post = Post.find(params[:user_id])
     @comments = Comment.all
   end
 
