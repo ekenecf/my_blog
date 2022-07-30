@@ -14,15 +14,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = params[:post]
+    print params
     user = User.find(params[:user_id])
-    created_post = Post.new(params.require(post).permit(:title, :text))
+    created_post = Post.new(params.require(:post).permit(:title, :text, :user_id))
     created_post.commentscounter = 0
     created_post.likescounter = 0
-    created_post.authorId = user.id
+    created_post.authorId = params[:user_id]
 
-    if created_post.save?
-      flash[:notice] = 'Post correctly created'
+    if created_post.save
+      flash[:notice] = 'Post correctly created!!'
       redirect_to user_posts_url(user, created_post)
     else
       flash.now[:error] = "Error: Post could not be saved"
