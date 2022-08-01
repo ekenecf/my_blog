@@ -11,15 +11,14 @@ class CommentsController < ApplicationController
   def show; end
 
   def new
+    puts "I am in this method"
     @comment = Comment.new
   end
 
   def create
-    comment = params[:comment]
     user = User.find(params[:user_id])
     post = Post.find(params[:post_id])
-    puts user, post.comments_counter
-    created_comment = Comment.new(comment.permit(:text))
+    created_comment = Comment.new(params.require(:comment).permit(:text))
     created_comment.author_id = user.id
     created_comment.post_id = post.id
     if created_comment.save

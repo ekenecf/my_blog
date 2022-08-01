@@ -5,8 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @posts = Post.new
-    render :new
+    @post = Post.new
   end
 
   def show
@@ -14,12 +13,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    print params
     user = User.find(params[:user_id])
-    created_post = Post.new(params.require(:post).permit(:title, :text, :user_id))
+    created_post = Post.new(params.require(:post).permit(:title, :text))
     created_post.commentscounter = 0
     created_post.likescounter = 0
-    created_post.authorId = params[:user_id]
+    created_post.authorId = user.id
 
     if created_post.save
       flash[:notice] = 'Post correctly created!!'
