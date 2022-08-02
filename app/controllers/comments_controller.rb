@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
   def show; end
 
   def new
-    puts 'I am in this method'
     @comment = Comment.new
   end
 

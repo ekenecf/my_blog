@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-    created_post = current_user.posts.new(params.require(:post).permit(:title, :text))
+    created_post = current_user.posts.new(comment_params)
     created_post.commentscounter = 0
     created_post.likescounter = 0
     created_post.authorId = user.id
@@ -28,5 +28,11 @@ class PostsController < ApplicationController
       @post = created_post
       render :new
     end
+  end
+
+  private
+
+  def comment_params
+    params.require(:post).permit(:title, :text)
   end
 end
