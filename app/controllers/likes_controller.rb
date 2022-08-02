@@ -12,7 +12,7 @@ class LikesController < ApplicationController
   def create
     @post = Post.includes(:user).find(params[:post_id])
     @post_author = @post.user
-    
+
     # current_user is gotten from ApplicationController
     @the_user = current_user
 
