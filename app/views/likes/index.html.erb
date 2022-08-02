@@ -1,1 +1,13 @@
 <h2>Here is a list of likes for a given user<h2>
+
+
+<div id="likes">
+  <% @likes.each do |like| %>
+
+    <p>
+      <%= link_to "Show this like", like %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New like", new_like_path %>

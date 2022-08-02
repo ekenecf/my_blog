@@ -19,8 +19,8 @@ class CommentsController < ApplicationController
     user = User.find(params[:user_id])
     post = Post.find(params[:post_id])
     created_comment = Comment.new(params.require(:comment).permit(:text))
-    created_comment.author_id = user.id
-    created_comment.post_id = post.id
+    created_comment.authorId = user.id
+    created_comment.postId = post.id
     if created_comment.save
       redirect_to user_post_url(user, post)
     else

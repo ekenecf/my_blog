@@ -2,5 +2,8 @@
 <div>
   <%= render partial: "posts/postdetail", locals: { post: @post } %>
 
-  <%= link_to "Create comment", new_user_post_comment_path(@user, @post)%>
   </div>
+  <%= link_to "Create new comment", new_user_post_comment_path(@user, @post)%>
+
+  <%= link_to "Back to all posts", user_posts_path(@user, @post)%>
+
