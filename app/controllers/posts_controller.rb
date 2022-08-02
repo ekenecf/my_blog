@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
+    # current_user is gotten from ApplicationController
     created_post = current_user.posts.new(post_params)
     created_post.commentscounter = 0
     created_post.likescounter = 0
