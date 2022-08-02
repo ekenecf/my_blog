@@ -1,0 +1,8 @@
+<h1>Create new comment</h1>
+
+<%= form_with model: @comment, url: user_post_comments_path, method: :post, local: true do |f| %>
+    <%= f.label :text %>
+    <%= f.text_area :text  %>
+    <%= f.submit "Save post" %>
+  <% end %>
+

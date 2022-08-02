@@ -1,0 +1,8 @@
+<p ><%= notice %></p>
+
+<%= render @like %>
+
+<div>
+  <%= link_to "Back to likes", likes_path %>
+  <%= button_to "Destroy this like", @like, method: :delete %>
+</div>

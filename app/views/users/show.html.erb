@@ -1,4 +1,6 @@
 <div>
+<%= link_to "New post", new_user_post_path(@user) %>
+
   <h1>Posts :</h1>
   <div >
 
@@ -7,4 +9,5 @@
           <% end %>
 </div>
 <%= link_to "See all posts", user_posts_path(@user)  %>
+<%= link_to "See all users", users_path(@user)  %>
 </div>
