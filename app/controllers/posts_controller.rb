@@ -24,7 +24,7 @@ class PostsController < ApplicationController
       flash[:notice] = 'Post correctly created!!'
       redirect_to user_posts_url(user, created_post)
     else
-      flash.now[:error] = "Error: Post could not be saved"
+      flash.now[:error] = 'Error: Post could not be saved'
       @post = created_post
       render :new
     end

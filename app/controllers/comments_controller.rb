@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   before_action :set_comment, only: %i[index show update destroy]
 
   def index
@@ -11,7 +10,7 @@ class CommentsController < ApplicationController
   def show; end
 
   def new
-    puts "I am in this method"
+    puts 'I am in this method'
     @comment = Comment.new
   end
 
