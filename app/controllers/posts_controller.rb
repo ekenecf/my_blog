@@ -1,18 +1,22 @@
 class PostsController < ApplicationController
+  # GET /posts
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.includes(:user).where(user: params[:user_id])
+    @posts = Post.includes(:user).where(user: @user.id)
   end
 
+  # GET /new
   def new
     @post = Post.new
   end
 
+  # GET /posts/:id
   def show
     @user = User.find(params[:user_id])
     @post = Post.includes(:user, comments: [:user]).find(params[:id])
   end
 
+  # POST /posts
   def create
     user = User.find(params[:user_id])
     # current_user is gotten from ApplicationController
