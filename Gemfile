@@ -5,7 +5,7 @@ ruby '3.1.2'
 
 gem 'ffi', '~> 1.9', '>= 1.9.10'
 
-gem "bullet"
+gem 'bullet'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
