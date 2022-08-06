@@ -9,7 +9,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders correct page contents' do
-      expect(response.body).to include(' Users:')
+      expect(response.body).to include('Users')
     end
 
     it 'renders index template' do
