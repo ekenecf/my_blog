@@ -23,7 +23,7 @@ RSpec.describe 'users', type: :feature do
     it 'shows the Number of posts' do
       user.save
       visit users_path
-      expect(page).to have_content("Number of posts: #{user.postcounter}" )
+      expect(page).to have_content("Number of posts: #{user.postcounter}")
     end
 
     it 'redirects to users show page' do

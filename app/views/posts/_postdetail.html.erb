@@ -9,6 +9,9 @@
   <p>
    Text content: <%= post.text %>
   </p>
+  <p>
+   Post_title: <%= post.title %>
+  </p>
    Likes:
    <%= render partial: "likes/form", locals: { like: post.likes, user: post.user, post: post } %>
 

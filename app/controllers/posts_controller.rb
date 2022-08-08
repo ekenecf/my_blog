@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/:id
   def show
     @user = User.find(params[:user_id])
-    @post = Post.includes(:user).find(params[:id])
+    @post = Post.includes(:user, :comments).find(params[:id])
   end
 
   # POST /posts
