@@ -1,7 +1,7 @@
  <h2>
     <span>
 
-     Title: <%= link_to post.title, [post.user, post] %>
+     Post_Title: <%= link_to post.title, user_post_path(@user, post.id) %>
 
     </span>
   </h2>
@@ -13,5 +13,8 @@
   Comment: <%= post.commentscounter %> 
   </p>
   <div>
-  
+  <p><%= post.user.name %> </p>
+  <p>Posts_Counter:  <%= post.user.postcounter %> </p>
+  <p>Likes_Counter:  <%= post.likescounter %> </p>
+
   </div>
