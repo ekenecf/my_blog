@@ -9,7 +9,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'renders correct page contents' do
-      expect(response.body).to include('Here is a list of users')
+      expect(response.body).to include('Users')
     end
 
     it 'renders index template' do
@@ -18,13 +18,19 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET #show' do
-    before(:example) { get('/users/20') }
+    let(:user) do
+      User.create!(name: 'Ekene',
+                   photo: 'https://as2.ftcdn.net/v2/jpg/02/17/51/67/1000_F_217516770_nHjCK3C82B2ZUC3JB3qQs8W2BGLHxZfa.jpg',
+                   bio: 'Microverse_student', postcounter: 0)
+    end
+
+    before(:example) { get("/users/#{user.id}") }
     it 'should have an http success response' do
       expect(response).to have_http_status(:ok)
     end
 
     it 'renders correct page contents' do
-      expect(response.body).to include('Specific user')
+      expect(response.body).to include('See all users')
     end
 
     it 'renders index template' do
