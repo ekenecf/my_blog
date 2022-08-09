@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
+
   validates :name, presence: true
   # postscounter must be an integer greater than or equal to zero.
   validates :postcounter, numericality: { greater_than_or_equal_to: 0 }
