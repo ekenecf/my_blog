@@ -1,4 +1,5 @@
 <div>
+
     <h2>
       Post by <%= post.user.name %>
     </h2>
@@ -7,7 +8,7 @@
     </small>
 
   <p>
-   Text content: <%= post.text %>
+   Post content: <%= post.text %>
   </p>
   <p>
    Post_title: <%= post.title %>
@@ -21,9 +22,14 @@
     <p>There are no comment!</p>
   <% end %>
   <% post.comments.each do |comment| %>
-    <%= comment.text %><br>
+   <p>Comments: <%= comment.text %><br></p>
+    <% if can? :destroy, comment %>
+    <%= button_to "Delete comment", user_post_comment_path(comment.user, comment.post, comment), method: :delete %> 
+  <% end %>
     <% end %>
   </div>
-
+  <% if can? :destroy, @post %>
+      <%= button_to "Delete Post", user_post_path(@post.user, @post), method: :delete %> 
+    <% end %>
 
 </div>

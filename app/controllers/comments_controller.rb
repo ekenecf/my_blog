@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[index show update destroy]
 
+  load_and_authorize_resource
+
   def index
     @comments = Comment.all
   end
@@ -17,7 +19,6 @@ class CommentsController < ApplicationController
     user = User.find(params[:user_id])
     post = Post.find(params[:post_id])
 
-    # current_user is gotten from ApplicationController
     created_comment = Comment.new(comment_params)
     created_comment.authorId = user.id
     created_comment.postId = post.id
@@ -26,6 +27,12 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to user_posts_path(current_user, @comment.post), notice: "Successfully deleted"
   end
 
   private
