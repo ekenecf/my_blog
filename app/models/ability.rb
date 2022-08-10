@@ -6,6 +6,7 @@ class Ability
     can :read, Post, public: true
 
     return unless user.present? # additional permissions for logged in users (they can read their own posts)
+
     can :read, User # all users can view users
     can :manage, Post, user: user # only post owners can manage posts
     can :manage, Comment, user: user # only post owners can manage posts
