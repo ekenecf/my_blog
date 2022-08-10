@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -13,14 +11,13 @@ class Ability
     can :read, Comment # all users can view comments
     return unless user.present?
 
-    can :manage, Post, authorId: user.id # only post owners can manage posts
-    can :manage, Comment, authorId: user.id # only post owners can manage posts
+    can :manage, Post, user: user # only post owners can manage posts
+    can :manage, Comment, user: user # only post owners can manage posts
     return unless user.admin? # additional permissions for administrators
 
     can :manage, :all
   end
 end
-
 
 # class Ability
 #   include CanCan::Ability
