@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
 
     # current_user is gotten from ApplicationController
-    created_comment = current_user.comments.new(comment_params)
+    created_comment = Comment.new(comment_params)
     created_comment.authorId = user.id
     created_comment.postId = post.id
     if created_comment.save

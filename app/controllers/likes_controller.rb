@@ -14,13 +14,12 @@ class LikesController < ApplicationController
     @post_author = @post.user
 
     # current_user is gotten from ApplicationController
-    @the_user = current_user
 
-    @liked_posts_by_this_user = Like.where(user: @the_user, post: @post)
+    @liked_posts_by_this_user = Like.where(user: @post_author, post: @post)
 
     destroy && return if @liked_posts_by_this_user.present?
 
-    new_like = Like.create(user: @the_user, post: @post)
+    new_like = Like.create(user: @post_author, post: @post)
 
     return unless new_like.save
 

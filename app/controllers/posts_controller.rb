@@ -19,17 +19,16 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     user = User.find(params[:user_id])
-    # current_user is gotten from ApplicationController
-    created_post = current_user.posts.new(post_params)
+    created_post = Post.new(post_params)
     created_post.commentscounter = 0
     created_post.likescounter = 0
     created_post.authorId = user.id
 
     if created_post.save
-      flash[:notice] = 'Post correctly created!!'
-      redirect_to user_posts_url(user, created_post)
+      flash[:notice] = 'Post created successfully.'
+      redirect_to user_post_url(user, created_post)
     else
-      flash.now[:error] = 'Error: Post could not be saved'
+      flash[:error] = 'Post unsucessful!'
       @post = created_post
       render :new
     end
