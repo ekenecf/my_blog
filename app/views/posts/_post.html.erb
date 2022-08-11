@@ -6,15 +6,14 @@
     </span>
   </h2>
    <p>
-   Text content: <%= post.text %>
+   Post_content: <%= post.text %>
   </p>
 
   <p>
   Comment: <%= post.commentscounter %> 
   </p>
   <div>
-  <p><%= post.user.name %> </p>
-  <p>Posts_Counter:  <%= post.user.postcounter %> </p>
-  <p>Likes_Counter:  <%= post.likescounter %> </p>
+  <p>Who made the post: <%= post.user.name %> </p>
+  <p>Number of likes:  <%= post.likescounter %> </p>
 
   </div>

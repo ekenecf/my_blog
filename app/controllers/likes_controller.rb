@@ -13,8 +13,6 @@ class LikesController < ApplicationController
     @post = Post.includes(:user).find(params[:post_id])
     @post_author = @post.user
 
-    # current_user is gotten from ApplicationController
-
     @liked_posts_by_this_user = Like.where(user: @post_author, post: @post)
 
     destroy && return if @liked_posts_by_this_user.present?
