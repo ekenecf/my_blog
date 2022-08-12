@@ -6,10 +6,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = Post.includes(:user).where(user: @user.id)
     render json: @posts, status: :ok
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @posts }
-    # end
   end
 
   # GET /new
@@ -30,7 +26,6 @@ class PostsController < ApplicationController
     created_post.commentscounter = 0
     created_post.likescounter = 0
     created_post.authorId = user.id
-
 
     if created_post.save
       flash[:notice] = 'Post created successfully.'

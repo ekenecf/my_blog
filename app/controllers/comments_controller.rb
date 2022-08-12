@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
-    # render json: @comments, status: :ok
+    render json: @comments, status: :ok
   end
 
   def edit; end
