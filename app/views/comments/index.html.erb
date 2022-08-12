@@ -1,1 +1,4 @@
-<h1>created_comment for a particular post, @comment<h1>
+<h1>created_comment for a particular post<h1>
+<% @comments.each do |comment| %>
+   <p><%= comment.user.name %>: <%= comment.text %></p> 
+<% end %>

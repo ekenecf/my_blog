@@ -7,3 +7,4 @@
 
   <%= link_to "Back to all posts", user_posts_path(@user, @post)%>
 
+  <%= link_to "See all comments ", user_post_comments_path(@post.user, @post, @post.comments)%>
