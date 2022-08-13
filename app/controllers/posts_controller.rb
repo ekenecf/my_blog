@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   # GET /new
   def new
-    @post = Post.new
+    @post = Post.new # same as current_user.posts.build
   end
 
   # GET /posts/:id
