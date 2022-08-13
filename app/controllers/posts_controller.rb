@@ -5,11 +5,12 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = Post.includes(:user).where(user: @user.id)
+    render json: @posts, status: :ok
   end
 
   # GET /new
   def new
-    @post = Post.new
+    @post = Post.new # same as current_user.posts.build
   end
 
   # GET /posts/:id

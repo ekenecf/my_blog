@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[index show update destroy]
+  before_action only: %i[create index show update destroy]
 
   load_and_authorize_resource
 
   def index
     @comments = Comment.all
+    render json: @comments, status: :ok
   end
 
   def edit; end
@@ -36,10 +37,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
 
   # Only allow a list of trusted parameters through.
   def comment_params
